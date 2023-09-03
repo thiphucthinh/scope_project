@@ -16,16 +16,30 @@ let sandwich2 = sandwichMaker(); // => returns a function
 sandwich2("pb") // => "One sandwich with tomato and pb"
 
 ***********************************************************************/
-const sandwichMaker = function() {
-  const ingredient = 'tomato';
-  let sandwichWithIngredients = `One sandwich with `+ ingredient;
 
-  return function(newIngredient){
-    sandwichWithIngredients = sandwichWithIngredients + " and " + newIngredient;
-    return sandwichWithIngredients;
+// Option 1
+function sandwichMaker() {
+  let ingredient = ["tomato"];
+
+  return function addIngredient(newIngredient) {
+    ingredient.push(newIngredient);
+    return `One sanwich with ${ingredient.join(" and ")}`;
   }
 }
 
+
+// Option 2
+// const sandwichMaker = function() {
+//   const ingredient = 'tomato';
+//   let sandwichWithIngredients = `One sandwich with `+ ingredient;
+
+//   return function(newIngredient){
+//     sandwichWithIngredients = sandwichWithIngredients + " and " + newIngredient;
+//     return sandwichWithIngredients;
+//   }
+// }
+
+// Example
 let sandwich = sandwichMaker(); // => returns a function
 console.log(sandwich("spinach")) // => "One sandwich with tomato and spinach"
 console.log(sandwich("jelly")) // => "One sandwich with tomato and spinach and jelly"

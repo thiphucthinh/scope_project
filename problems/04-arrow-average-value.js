@@ -10,11 +10,7 @@ arrowAvgValue([2, 3, 7]); // => 4
 arrowAvgValue([100, 60, 64]); // => 74.66666666666667
 ***********************************************************************/
 
-const arrowAvgValue = array => {
-  const sum = array.reduce((acc, currentVal) => acc + currentVal);
-  return sum / array.length;
-};
-
+const arrowAvgValue = arr => arr.reduce((sum, el) => sum + el, 0) / arr.length;
 
 //Examples:
 console.log(arrowAvgValue([10, 20])); // => 15
